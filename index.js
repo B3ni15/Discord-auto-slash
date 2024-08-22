@@ -21,9 +21,13 @@ rl.question('Add meg a felhasználóneved: ', (username) => {
             
             await page.waitForNavigation();
 
-            await page.goto('https://discord.com/channels/881259404735959040/1215305846637072445');
+            // Add meg a szerver ID-jét és a csatorna ID-jét
+
+            await page.goto('https://discord.com/channels/server_id/csatorna_id');
             
             await page.waitForSelector('div[role="textbox"]', { visible: true });
+
+            // A /economy work helyére jöhet majd a parancs amit szeretnél, futtatni.
             await page.type('div[role="textbox"]', '/economy work', { delay: 100 });
             
             await page.keyboard.press('Tab');
@@ -32,6 +36,7 @@ rl.question('Add meg a felhasználóneved: ', (username) => {
 
             setTimeout(() => {}, 11000);
 
+            // Ezt is szerkesztheted 30 percenként futtatja a parancsot.
             setInterval(() => {
                 page.type('div[role="textbox"]', '/economy work', { delay: 100 });
                 page.keyboard.press('Tab');
